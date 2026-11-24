@@ -1,0 +1,381 @@
+* {
+    box-sizing: border-box;
+    /* مشخص میکنه مرورگر ابعاد یک یک عنصر رو چگونه محاسبه کنه box-sizing ویژگی */
+}
+/* علامت [*] انتخاب گر عمومی است; یعنی این قانون روی تمام عناصر صفحه اعمال میشه */
+
+body {
+    background-color: #080B14;
+    margin: 0;
+    /* حاشیه در نظر میگیرد body مرورگر به صورت پیش فرض برای بعضی عناصر از جمله*/
+    /* این فاصله حذف میشود margin: 0; با */
+}
+
+header {
+    background-color: #080B14;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    padding: 0 40px;
+    /* فاصله داخلی بالا و پایین صفر و چپ و راست 40 پیکسل */
+    border-bottom: 1px solid #D6A84F;
+}
+
+h1 {
+    color: #D6A84F;
+}
+
+.text {
+    color: #D6A84F;
+    text-decoration: none;
+    /* خط زیر کدهارو حذف میکنه */
+    font-size: 14px;
+    transition: 0.3s;
+    /* تغییرات ظاهری رو طی 0.3 ثانیه نرم و تدریجی تر میکنه */
+}
+
+.text:hover{
+    color: #F2CC78;
+    /* با این دستور وقتی نشانگر موس روی لینک میره رنگش روشن تر میشه */
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+    /* این دستور باعث میشه لینک هاوبقیه منو بافاصله ازهم قراربگیرند */
+}
+
+.hero{
+    position: relative;
+    height: calc(100vh - 80px);  /* 100vh برابر با ارتفاع قابل مشاهده صفحه مرورگره. */
+    display: flex;  /* امکان چیدمان عناصر رو فراهم می‌کنه */
+    align-items: center;  /* رو از نظر عمودی وسط قرار میده Hero محتوای داخل */
+    padding: 0 6%;  /* از دو طرف صفحه به محتوا فاصله می‌ده */
+    overflow: hidden;   /* بیرون بزنن Hero اجازه نمی‌ده قسمت‌های اضافی تصویر از محدوده*/
+}
+
+.hero-image{
+    position: absolute; /* عنصر رو نسبت به نزدیک‌ترین والد موقعیت‌دار قرار می‌ده. */
+    top: 0; /* شروع بشه Hero یعنی عنصر از بالای بخش */
+    right: 0; /* شروع بشه Hero یعنی از سمت چپ بخش */
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* ترتیب قرارگیری عناصر روی هم رو مشخص می‌کنه. */
+
+    /* محو شدن تدریجی لبه چپ تصویر */
+    mask-image: linear-gradient(to right, transparent, black 8%);  /* mask-image مشخص می‌کنه کدوم قسمت‌های تصویر دیده یا محو بشن */
+    /* linear-gradient یک طیف رنگی تدریجی ایجاد می‌کنه */
+    /* transparent یعنی شفاف و black در این ماسک یعنی کاملاً قابل مشاهده */
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%);
+}
+
+.hero-image img{
+    width: 100%;  /* تمام عرض فضای والد رو اشغال می‌کنه */
+    height: 100%; /* تمام ارتفاع فضای والد رو اشغال می‌کنه */
+    object-fit: cover; /* تصویر رو بدون کشیدگی، کل فضای مشخص‌ شده می‌پوشونه. */
+    display: block;
+    filter: brightness(0.65); /* کاهش روشنایی تصویر به 65 درصد */
+}
+
+.hero-content{
+    position: relative;  /* امکان تعیین موقعیت عنصر نسبت به حالت عادی */
+    z-index: 2;   /* قرار گرفتن متن روی تصویر */
+    max-width: 650px;  /* حداکثر عرض محتوا را 650 پیکسل تعیین می‌کند */
+}
+
+.hero-logo{
+    color: #D6A84F;
+    font-size: 64px;
+    letter-spacing: 5px;
+    margin: 0;  /* حذف فاصله پیش فرض اطراف عنوان */
+}
+
+.hero-tagline{
+    color: #F3EBDD;
+    font-size: 14px;
+    letter-spacing: 4px;
+    margin-top: 12px;
+    /* فاصله از بالای شعار */
+}
+
+.hero-button{
+    display: inline-block; /* امکان تنظیم ابعاد و فاصله دکمه در کنار متن */ 
+    margin-top: 25px;  /* فاصله بیرونی از بالای دکمه */
+    padding: 14px 28px;  /* فاصله داخلی بالا و پایین 14 و چپ و راست 28 پیکسل */
+    border: 2px solid #D6A84F;  /* حاشیه طلایی با ضخامت 2 پیکسل */
+    border-radius: 30px; /* گرد کردن گوشه‌های دکمه */
+    color: #D6A84F; 
+    text-decoration: none; /* حذف خط زیر لینک */
+    transition: 0.3s; /* اجرای نرم تغییرات ظاهری طی 0.3 ثانیه */
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.hero-button:hover{
+    background-color: #D6A84F; /* تغییر رنگ پس‌زمینه هنگام قرار گرفتن موس روی دکمه */
+    color: #080B14;
+    transform: translateY(-3px);
+}
+
+.hero-divider{
+    display: flex;
+    align-items: center;
+    width: 480px;
+    margin: 25px;
+    /* فاصله خط از نوشته های بالا و پایین*/
+}
+
+.hero-divider::before,
+.hero-divider::after{
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: #D6A84F;
+    /* ایجاد خط طلایی در دو طرف ستاره */
+}
+
+.hero-divider span{
+    color: #D6A84F;
+    margin: 0 12px;
+    /* فاصله ستاره از خطوط */
+    font-size: 20px;
+}
+
+.hero-quote{
+    color: #F3EBDD;
+    font-size: 18px;
+    margin-bottom: 25px;
+    /* فاصله از پایین متن */
+}
+
+/* طراحی لوگوی فروشگاه */
+.site-logo{
+    color: #D6A84F;
+    font-size: 30px;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* BOOKS نوشته کوچک زیر لوگو */
+.site-logo span{
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    letter-spacing: 6px;
+    margin-top: 3px;
+}
+
+/* طراحی کادر جستوجو */
+.search-box{
+    display: flex;
+    align-items: center;
+    width: 280px;
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid #34313A;
+    border-radius: 25px;
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+/* طراحی قسمت نوشتن عبارت جستوجو */
+.search-box input{
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #F3EBDD;
+    padding: 8px;
+    font-size: 12px;
+}
+
+/* رنگ متن راهنمای داخل کادر */
+.search-box input::placeholder {
+    color: #A7A9B5;
+}
+
+/* طراحی دکمه ذره‌بین */
+.search-box button {
+    background: transparent;
+    border: none;
+    color: #A7A9B5;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: 0.3s;
+}
+
+/* تغییر رنگ کادر هنگام انتخاب قسمت جست‌وجو */
+.search-box:focus-within {
+    border-color: #D6A84F;
+}
+
+/* تغییر رنگ ذره‌بین هنگام قرار گرفتن موس روی آن */
+.search-box button:hover {
+    color: #D6A84F;
+}
+
+/* طراحی بخش کتاب ها */
+.books {
+    padding: 80px 6%;
+    /* فاصله داخلی بالا و پایین 80 پیکسل و چپ و راست 6 درصد */
+    background-color: #080B14;
+    /* تعیین رنگ پس‌زمینه بخش کتاب‌ها */
+}
+
+.section-title {
+    text-align: center;
+    /* قرار دادن نوشته‌ها در مرکز */
+    margin-bottom: 50px;
+    /* ایجاد فاصله بیرونی 50 پیکسلی از پایین عنوان */
+}
+
+.section-title span {
+    color: #D6A84F;
+    /* رنگ طلایی نوشته کوچک بالای عنوان */
+    font-size: 12px;
+    /* اندازه فونت 12 پیکسل */
+    letter-spacing: 3px;
+    /* ایجاد فاصله 3 پیکسلی بین حروف */
+}
+
+.section-title h2 {
+    color: #F3EBDD;
+    /* تعیین رنگ عنوان اصلی */
+    font-size: 36px;
+    /* اندازه فونت عنوان 36 پیکسل */
+    margin: 15px 0;
+    /* فاصله بیرونی بالا و پایین 15 پیکسل و چپ و راست صفر */
+}
+
+.section-title p {
+    color: #A7A9B5;
+    /* رنگ متن توضیحات زیر عنوان */
+    font-size: 16px;
+    /* اندازه فونت 16 پیکسل */
+}
+
+.book-container {
+    display: grid;
+    /* ایجاد چیدمان شبکه‌ای برای قرارگیری کارت‌ها */
+
+    grid-template-columns: repeat(3, 1fr);
+    /* ایجاد 3 ستون هم‌اندازه */
+
+    gap: 30px;
+    /* ایجاد فاصله 30 پیکسلی بین کارت‌ها */
+}
+
+.book-card {
+    background-color: #101827;
+    /* تعیین رنگ پس‌زمینه کارت */
+
+    border: 1px solid #34313A;
+    /* ایجاد حاشیه با ضخامت 1 پیکسل و رنگ خاکستری تیره */
+
+    border-radius: 12px;
+    /* گرد کردن گوشه‌های کارت */
+
+    padding: 20px;
+    /* ایجاد فاصله داخلی 20 پیکسلی از اطراف */
+
+    text-align: center;
+    /* وسط‌چین کردن محتوای داخل کارت */
+
+    transition: 0.3s;
+    /* اجرای نرم تغییرات ظاهری طی 0.3 ثانیه */
+}
+
+.book-card:hover {
+    transform: translateY(-8px);
+    /* حرکت کارت به اندازه 8 پیکسل به سمت بالا هنگام قرار گرفتن موس */
+
+    border-color: #D6A84F;
+    /* تغییر رنگ حاشیه کارت به طلایی هنگام قرار گرفتن موس */
+}
+
+.book-card img {
+    width: 75%;
+    /* اشغال تمام عرض کارت توسط تصویر */
+
+    height: 280px;
+    /* تعیین ارتفاع تصویر برابر با 280 پیکسل */
+
+    object-fit: contain;
+    /* کل تصویر بدون بریده شدن نمایش داده می‌شه */
+
+    display: block;
+    /* تصویر به‌صورت یک عنصر بلوکی نمایش داده می‌شه */
+
+    margin: 0 auto;
+    /* تصویر رو به‌صورت افقی وسط‌چین می‌کنه */
+
+    border-radius: 8px;
+    /* گرد کردن گوشه‌های تصویر */
+}
+
+.book-card h3 {
+    color: #F3EBDD;
+    /* تعیین رنگ عنوان کتاب */
+
+    font-size: 21px;
+    /* اندازه فونت عنوان کتاب */
+
+    margin-top: 20px;
+    /* ایجاد فاصله بیرونی 20 پیکسلی از بالا */
+}
+
+.book-card p {
+    color: #A7A9B5;
+    /* تعیین رنگ نام نویسنده */
+
+    font-size: 14px;
+    /* اندازه فونت نام نویسنده */
+}
+
+.book-price {
+    display: block;
+    /* قرار گرفتن قیمت در یک خط مستقل */
+
+    color: #D6A84F;
+    /* رنگ طلایی قیمت */
+
+    font-size: 18px;
+    /* اندازه فونت قیمت */
+
+    margin: 15px 0;
+    /* فاصله بیرونی بالا و پایین 15 پیکسل */
+}
+
+.book-card a {
+    display: inline-block;
+    /* امکان تنظیم ابعاد و فاصله دکمه در کنار سایر محتوا */
+
+    color: #D6A84F;
+    /* رنگ متن دکمه */
+
+    text-decoration: none;
+    /* حذف خط زیر لینک */
+
+    border: 1px solid #D6A84F;
+    /* ایجاد حاشیه طلایی با ضخامت 1 پیکسل */
+
+    padding: 10px 22px;
+    /* فاصله داخلی بالا و پایین 10 و چپ و راست 22 پیکسل */
+
+    border-radius: 25px;
+    /* گرد کردن گوشه‌های دکمه */
+
+    transition: 0.3s;
+    /* اجرای نرم تغییرات ظاهری طی 0.3 ثانیه */
+}
+
+.book-card a:hover {
+    background-color: #D6A84F;
+    /* تغییر رنگ پس‌زمینه دکمه هنگام قرار گرفتن موس */
+
+    color: #080B14;
+    /* تغییر رنگ نوشته دکمه به سرمه‌ای تیره */
+}
